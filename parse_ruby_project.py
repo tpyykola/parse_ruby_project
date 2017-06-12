@@ -13,7 +13,12 @@ def checkFiles(path):
 		if(S_ISDIR(mode)):
 			checkFiles(newPath)
 		else:
-			print(file)
+			filename, extension = os.path.splitext(file)
+			if(extension == ".rb"):
+				#print(file)
+				with open(newPath, "r") as rubyFile:
+					data = rubyFile.readlines()
+					print(data)
 	
 
 checkFiles(sys.argv[1])
