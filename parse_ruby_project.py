@@ -18,7 +18,14 @@ def checkFiles(path):
 				#print(file)
 				with open(newPath, "r") as rubyFile:
 					data = rubyFile.readlines()
-					print(data)
+				#print(data)
+
+				needle = "require"
+				for line in data:
+					#print(line)
+					if(line.startswith(needle)):
+						print(line)
+						
 	
 
 checkFiles(sys.argv[1])
